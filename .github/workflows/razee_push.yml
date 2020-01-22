@@ -19,6 +19,5 @@ jobs:
         DOCKER_ID: ${{ secrets.DOCKER_ID }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
-        echo docker login -u="${DOCKER_ID}" -p="${DOCKER_PASSWORD}"
         docker login -u="${DOCKER_ID}" -p="${DOCKER_PASSWORD}"
-        docker push "mckaymic/razeedemo:${GITHUB_SHA}
+        docker push "mckaymic/razeedemo:${GITHUB_SHA}"
