@@ -10,7 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the docker file
-      run: docker build .
+      run: docker build --pull --rm -t "mckaymic/razeedemo:${GITHUB_SHA}" .
     - name: List images
       run: |
         docker images
+    - name: Push image
+      run: |
+        docker login -u="${DOCKER_ID}" -p="${DOCKER_PASSWORD}"
+        docker push "mckaymic/razeedemo:${GITHUB_SHA}
