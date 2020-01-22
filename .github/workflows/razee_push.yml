@@ -16,5 +16,6 @@ jobs:
         docker images
     - name: Push image
       run: |
+        echo docker login -u="${DOCKER_ID}" -p="${DOCKER_PASSWORD}"
         docker login -u="${DOCKER_ID}" -p="${DOCKER_PASSWORD}"
         docker push "mckaymic/razeedemo:${GITHUB_SHA}
